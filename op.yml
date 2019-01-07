@@ -1,0 +1,3 @@
+name: github.com/opspec-pkgs/docker-build-localimage
+description: build docker image that stores on host machines docker image store
+version: 1.0.0
