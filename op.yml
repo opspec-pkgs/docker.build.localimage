@@ -1,5 +1,5 @@
 ---
-name: github.com/opspec-pkgs/docker-build-localimage
+name: github.com/opspec-pkgs/docker.build.localimage
 description: build image that stores on host machines docker image store
 inputs:
   context:
