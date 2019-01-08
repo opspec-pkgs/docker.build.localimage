@@ -23,7 +23,6 @@ opctl run github.com/opspec-pkgs/docker.build.localimage#1.0.0
 ```
 
 ## Compose
-  * `context` is the docker build context. The default is '.' which is likely sufficient.
   * `dockerSocket` must be the correct socket path to the host machine's `dockerd` runtime socket IE `/var/run/docker.sock` (default path). For linux, you can try `netstat -lx | grep docker | grep -Po '/.*docker.sock'` to verify the proper socket file.
   * `imageName` is the name of the image you want to give the resultant image for `docker build`
   * `dockerfile` is the path to (including) the Dockerfile from which you will build the image.
@@ -32,7 +31,6 @@ opctl run github.com/opspec-pkgs/docker.build.localimage#1.0.0
 op:
   ref: github.com/opspec-pkgs/docker.build.localimage#1.0.0
   inputs:
-    context:
     dockerfile:
     dockerSocket:
     imageName:
