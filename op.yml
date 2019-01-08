@@ -1,3 +1,40 @@
+---
 name: github.com/opspec-pkgs/docker-build-localimage
-description: build docker image that stores on host machines docker image store
+description: build image that stores on host machines docker image store
+inputs:
+  context:
+    dir:
+      description: context for build
+      default: .
+  dockerfile:
+    file:
+      description: Local Image Dockerfile
+      default: .
+  dockerSocket:
+    socket:
+      description: access to docker on node
+  imageName:
+    string:
+      description: "Name the container image IE container_name:latest (as in what would use for `docker build -t <...>`)"
+run:
+  serial:
+  - container:
+      image: { ref: 'docker:18.09.0-dind' }
+      files:
+        /Dockerfile: $(dockerfile)
+      dirs:
+        /buildcontext: $(context)
+      sockets:
+# The lval here needs to be your parent host's path to your docker daemon runtime socket.
+# For linux, you can try `netstat -lx | grep docker | grep -Po '/.*docker.sock'`
+        /var/run/docker.sock: dockerSocket
+      envVars:
+        imageName: $(imageName)
+      cmd:
+        - sh
+        - -ce
+        - |
+          cat /Dockerfile | docker image build \
+            -t "$imageName" -
+
 version: 1.0.0
