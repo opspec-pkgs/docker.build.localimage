@@ -2,13 +2,29 @@
 
 # Problem statement
 
-Builds image that stores on host machines docker image store.
-* `dockerSocket` must be the correct socket path to the host machine's `dockerd` runtime socket IE `/var/run/docker.sock` (default path). For linux, you can try `netstat -lx | grep docker | grep -Po '/.*docker.sock'` to verify the proper socket file.
-* `imageName` is the name of the image you want to give the resultant image for `docker build`
-* `dockerfile` is the path to (including) the Dockerfile from which you will build the image.
+Build a docker image in your host machines docker image store. Once a successful run of this op completes, you should see your new container created on the host machine when you run `docker images`.
 
-Once a successful run of this op completes, you should see your new container created on the host machine using `docker images`.
+## Inputs
 
+### `dockerfile`
+
+The path the Dockerfile from which you will build the image or a directory containing one named `Dockerfile`.
+
+### `dockerSocket`
+
+The socket path to the host machine's `dockerd` runtime socket.
+
+For linux, you can try `netstat -lx | grep docker | grep -Po '/.*docker.sock'` to verify the proper socket file. For macOS, the default is `/var/run/docker.sock`.
+
+### `dockerConfig`
+
+The JSON of a docker configuration file. Use this to provide authentication to the docker registry.
+
+Note that when using a credential helper (the default with macOS docker desktop) your default docker config at ~/.docker/config.json will not directly contain credentials. If you need to provide auth in this case, you'll need to generate a configuration file with base64 encoded credentials. See https://github.com/docker/for-mac/issues/4100 for more discussion on the format of this file.
+
+### `imageName`
+
+The name (tag) of the built image. e.g. "container_name:latest".
 
 # Format
 
@@ -30,14 +46,27 @@ opctl run github.com/opspec-pkgs/docker.build.localimage#1.0.0
 
 ## Compose
 
-```yaml
-op:
-  ref: github.com/opspec-pkgs/docker.build.localimage#1.0.0
-  inputs:
-    dockerSocket:
-    imageName:
-    # params w/ default
-    dockerfile:
+```yml
+  op:
+    ref: github.com/opspec-pkgs/docker.build.localimage#1.0.0
+    inputs:
+      imageName: my-image
+      dockerfile: $(/Dockerfile)
+      dockerSocket:
+      dockerConfig:
+        auths:
+          "https://index.docker.io/v1/":
+            auth: dXNlcm5hbWU6cGFzc3dvcmQK
+```
+
+```yml
+  op:
+    ref: github.com/opspec-pkgs/docker.build.localimage#1.0.0
+    inputs:
+      imageName: my-image
+      dockerfile: $(/Dockerfile)
+      dockerSocket:
+      dockerConfig: $(HOME/.docker/config.json)
 ```
 
 # Support
