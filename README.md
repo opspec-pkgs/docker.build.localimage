@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/opspec-pkgs/docker.build.localimage.svg?branch=master)](https://travis-ci.org/opspec-pkgs/docker.build.localimage)
+[![Build Status](https://github.com/opspec-pkgs/docker.build.localimage/workflows/build/badge.svg?branch=master)](https://github.com/opspec-pkgs/docker.build.localimage/actions?query=workflow%3Abuild+branch%3Amaster)
 
 # Problem statement
 
@@ -30,16 +30,12 @@ Example usage:
 ```
 
 
-# Format
-
-the op uses [![opspec 0.1.5](https://img.shields.io/badge/opspec-0.1.5-brightgreen.svg?colorA=6b6b6b&colorB=fc16be)](https://opspec.io/0.1.5) definition format
-
 # Example usage
 
-## Install
+## Visualize
 
 ```shell
-opctl op install github.com/opspec-pkgs/docker.build.localimage#1.0.0
+opctl ui github.com/opspec-pkgs/docker.build.localimage#1.0.0
 ```
 
 ## Run
@@ -54,17 +50,17 @@ opctl run github.com/opspec-pkgs/docker.build.localimage#1.0.0
 op:
   ref: github.com/opspec-pkgs/docker.build.localimage#1.0.0
   inputs:
-    dockerSocket:
-    imageName:
-    # params w/ default
-    dockerConfig:
-    dockerfile:
+    dockerSocket:  # 👈 required; provide a value
+    imageName:  # 👈 required; provide a value
+  ## uncomment to override defaults
+  #   dockerConfig: [object Object]
+  #   dockerfile: .
 ```
 
 # Support
 
 join us on
-[![Slack](https://opctl-slackin.herokuapp.com/badge.svg)](https://opctl-slackin.herokuapp.com/)
+[![Slack](https://img.shields.io/badge/slack-opctl-E01563.svg)](https://join.slack.com/t/opctl/shared_invite/zt-51zodvjn-Ul_UXfkhqYLWZPQTvNPp5w)
 or
 [open an issue](https://github.com/opspec-pkgs/docker.build.localimage/issues)
 
