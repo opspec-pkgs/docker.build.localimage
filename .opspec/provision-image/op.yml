@@ -13,16 +13,14 @@ inputs:
       constraints: { minLength: 1 }
       description: password for logging in to docker hub
       isSecret: true
-  srcDir:
-    dir:
-      default: .
-opspec: 0.1.6
 run:
   serial:
     - op:
         ref: github.com/opspec-pkgs/yaml.parse#1.0.0
-        inputs: { yaml: $(srcDir/op.yml) }
-        outputs: { opDotYml: result }
+        inputs:
+          yaml: $(../../op.yml)
+        outputs:
+          result: $(opDotYml)
     - container:
         image: { ref: 'alpine:3.6' }
         cmd: [sh, -ce, 'echo -n opspecpkgs/${opName#*/*/}:$(opDotYml.version) > /imageName']
