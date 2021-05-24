@@ -2,12 +2,32 @@
 
 # Problem statement
 
-Builds image that stores on host machines docker image store.
-* `dockerSocket` must be the correct socket path to the host machine's `dockerd` runtime socket IE `/var/run/docker.sock` (default path). For linux, you can try `netstat -lx | grep docker | grep -Po '/.*docker.sock'` to verify the proper socket file.
-* `imageName` is the name of the image you want to give the resultant image for `docker build`
-* `dockerfile` is the path to (including) the Dockerfile from which you will build the image.
+Build a docker image in your host machines docker image store. Once a successful run of this op completes, you should see your new container created on the host machine when you run `docker images`.
 
-Once a successful run of this op completes, you should see your new container created on the host machine using `docker images`.
+Example usage:
+
+```yml
+  op:
+    ref: github.com/opspec-pkgs/docker.build.localimage#1.0.0
+    inputs:
+      imageName: my-image
+      dockerfile: $(/Dockerfile)
+      dockerSocket:
+      dockerConfig:
+        auths:
+          "https://index.docker.io/v1/":
+            auth: dXNlcm5hbWU6cGFzc3dvcmQK
+```
+
+```yml
+  op:
+    ref: github.com/opspec-pkgs/docker.build.localimage#1.0.0
+    inputs:
+      imageName: my-image
+      dockerfile: $(/Dockerfile)
+      dockerSocket:
+      dockerConfig: $(HOME/.docker/config.json)
+```
 
 
 # Example usage
@@ -15,24 +35,25 @@ Once a successful run of this op completes, you should see your new container cr
 ## Visualize
 
 ```shell
-opctl ui github.com/opspec-pkgs/docker.build.localimage#1.0.0
+opctl ui github.com/opspec-pkgs/docker.build.localimage#1.1.0
 ```
 
 ## Run
 
 ```
-opctl run github.com/opspec-pkgs/docker.build.localimage#1.0.0
+opctl run github.com/opspec-pkgs/docker.build.localimage#1.1.0
 ```
 
 ## Compose
 
 ```yaml
 op:
-  ref: github.com/opspec-pkgs/docker.build.localimage#1.0.0
+  ref: github.com/opspec-pkgs/docker.build.localimage#1.1.0
   inputs:
     dockerSocket:  # 👈 required; provide a value
     imageName:  # 👈 required; provide a value
   ## uncomment to override defaults
+  #   dockerConfig: [object Object]
   #   dockerfile: .
 ```
 
