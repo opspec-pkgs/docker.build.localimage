@@ -35,20 +35,20 @@ Example usage:
 ## Visualize
 
 ```shell
-opctl ui github.com/opspec-pkgs/docker.build.localimage#1.0.0
+opctl ui github.com/opspec-pkgs/docker.build.localimage#1.1.0
 ```
 
 ## Run
 
 ```
-opctl run github.com/opspec-pkgs/docker.build.localimage#1.0.0
+opctl run github.com/opspec-pkgs/docker.build.localimage#1.1.0
 ```
 
 ## Compose
 
 ```yaml
 op:
-  ref: github.com/opspec-pkgs/docker.build.localimage#1.0.0
+  ref: github.com/opspec-pkgs/docker.build.localimage#1.1.0
   inputs:
     dockerSocket:  # 👈 required; provide a value
     imageName:  # 👈 required; provide a value
