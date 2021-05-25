@@ -8,7 +8,7 @@ Example usage:
 
 ```yml
   op:
-    ref: github.com/opspec-pkgs/docker.build.localimage#1.0.0
+    ref: github.com/opspec-pkgs/docker.build.localimage#1.1.0
     inputs:
       imageName: my-image
       dockerfile: $(/Dockerfile)
@@ -21,7 +21,7 @@ Example usage:
 
 ```yml
   op:
-    ref: github.com/opspec-pkgs/docker.build.localimage#1.0.0
+    ref: github.com/opspec-pkgs/docker.build.localimage#1.1.0
     inputs:
       imageName: my-image
       dockerfile: $(/Dockerfile)
