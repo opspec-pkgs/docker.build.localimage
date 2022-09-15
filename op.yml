@@ -1,6 +1,6 @@
 ---
 name: github.com/opspec-pkgs/docker.build.localimage
-version: 1.1.1
+version: 1.1.2
 description: |
   Build a docker image in your host machines docker image store. Once a successful run of this op completes, you should see your new container created on the host machine when you run `docker images`.
 
@@ -8,7 +8,7 @@ description: |
 
   ```yml
     op:
-      ref: github.com/opspec-pkgs/docker.build.localimage#1.1.0
+      ref: github.com/opspec-pkgs/docker.build.localimage#1.1.2
       inputs:
         imageName: my-image
         dockerfile: $(/Dockerfile)
@@ -21,7 +21,7 @@ description: |
 
   ```yml
     op:
-      ref: github.com/opspec-pkgs/docker.build.localimage#1.1.0
+      ref: github.com/opspec-pkgs/docker.build.localimage#1.1.2
       inputs:
         imageName: my-image
         dockerfile: $(/Dockerfile)
@@ -67,7 +67,7 @@ inputs:
 run:
   serial:
   - op:
-      ref: github.com/opspec-pkgs/docker.config.clean#1.0.0
+      ref: github.com/opspec-pkgs/docker.config.clean#1.0.1
       inputs:
         dockerConfig:
       outputs:
