@@ -8,7 +8,7 @@ Example usage:
 
 ```yml
   op:
-    ref: github.com/opspec-pkgs/docker.build.localimage#1.1.1
+    ref: github.com/opspec-pkgs/docker.build.localimage#1.1.2
     inputs:
       imageName: my-image
       dockerfile: $(/Dockerfile)
@@ -21,7 +21,7 @@ Example usage:
 
 ```yml
   op:
-    ref: github.com/opspec-pkgs/docker.build.localimage#1.1.1
+    ref: github.com/opspec-pkgs/docker.build.localimage#1.1.2
     inputs:
       imageName: my-image
       dockerfile: $(/Dockerfile)
@@ -35,20 +35,20 @@ Example usage:
 ## Visualize
 
 ```shell
-opctl ui github.com/opspec-pkgs/docker.build.localimage#1.1.1
+opctl ui github.com/opspec-pkgs/docker.build.localimage#1.1.2
 ```
 
 ## Run
 
 ```
-opctl run github.com/opspec-pkgs/docker.build.localimage#1.1.1
+opctl run github.com/opspec-pkgs/docker.build.localimage#1.1.2
 ```
 
 ## Compose
 
 ```yaml
 op:
-  ref: github.com/opspec-pkgs/docker.build.localimage#1.1.1
+  ref: github.com/opspec-pkgs/docker.build.localimage#1.1.2
   inputs:
     dockerSocket:  # 👈 required; provide a value
     imageName:  # 👈 required; provide a value
