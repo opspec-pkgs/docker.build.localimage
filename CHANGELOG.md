@@ -5,6 +5,12 @@ All notable changes will be documented in this file in accordance with
 
 ## \[Unreleased]
 
+## [1.2.0] - 2024-05-15
+
+### Added
+
+- Added input "build" to control build-if-not-exists behavior. Defaults to forcing a build.
+
 ## [1.1.3] - 2024-05-15
 
 ### Changed
