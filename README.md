@@ -9,10 +9,11 @@ Example usage:
 
 ```yml
   op:
-    ref: github.com/opspec-pkgs/docker.build.localimage#1.1.3
+    ref: github.com/opspec-pkgs/docker.build.localimage#1.2.0
     inputs:
       imageName: my-image
       dockerfile: $(/Dockerfile)
+      dockerfileStage: my-stage-name
       dockerSocket:
       dockerConfig:
         auths:
@@ -22,10 +23,11 @@ Example usage:
 
 ```yml
   op:
-    ref: github.com/opspec-pkgs/docker.build.localimage#1.1.3
+    ref: github.com/opspec-pkgs/docker.build.localimage#1.2.0
     inputs:
       imageName: my-image
       dockerfile: $(/Dockerfile)
+      dockerfileStage: my-stage-name
       dockerSocket:
       dockerConfig: $(HOME/.docker/config.json)
 ```
@@ -36,26 +38,27 @@ Example usage:
 ## Visualize
 
 ```shell
-opctl ui github.com/opspec-pkgs/docker.build.localimage#1.1.3
+opctl ui github.com/opspec-pkgs/docker.build.localimage#1.2.0
 ```
 
 ## Run
 
 ```
-opctl run github.com/opspec-pkgs/docker.build.localimage#1.1.3
+opctl run github.com/opspec-pkgs/docker.build.localimage#1.2.0
 ```
 
 ## Compose
 
 ```yaml
 op:
-  ref: github.com/opspec-pkgs/docker.build.localimage#1.1.3
+  ref: github.com/opspec-pkgs/docker.build.localimage#1.2.0
   inputs:
     dockerSocket:  # 👈 required; provide a value
     imageName:  # 👈 required; provide a value
   ## uncomment to override defaults
   #   dockerConfig: [object Object]
   #   dockerfile: .
+  #   dockerfileStage: ''
 ```
 
 # Support
