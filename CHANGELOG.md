@@ -5,6 +5,8 @@ All notable changes will be documented in this file in accordance with
 
 ## \[Unreleased]
 
+## [1.2.0] - 2025-03-04
+
 ### Added
 
 - Optional parameter for specifying the target stage in the dockerfile (`dockerfileStage`) to build.
