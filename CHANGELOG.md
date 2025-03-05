@@ -5,6 +5,15 @@ All notable changes will be documented in this file in accordance with
 
 ## \[Unreleased]
 
+### Added
+
+- Optional parameter for specifying the target stage in the dockerfile (`dockerfileStage`) to build.
+
+### Changed
+
+- Updated docker in docker (dind) image.
+
+
 ## [1.1.3] - 2024-05-15
 
 ### Changed
