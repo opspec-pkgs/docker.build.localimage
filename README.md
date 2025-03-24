@@ -54,11 +54,11 @@ op:
   ref: github.com/opspec-pkgs/docker.build.localimage#1.2.0
   inputs:
     dockerSocket:  # 👈 required; provide a value
+    dockerfileStage:  # 👈 required; provide a value
     imageName:  # 👈 required; provide a value
   ## uncomment to override defaults
   #   dockerConfig: [object Object]
   #   dockerfile: .
-  #   dockerfileStage: ''
 ```
 
 # Support
